@@ -1,0 +1,214 @@
+/* Reset e Fontes */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Wrapper que ocupa a tela inteira e centraliza o card */
+.main-wrapper {
+  min-height: 100vh;
+  background-color: #fcfcfc; /* Fundo quase branco da página inteira */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between; /* Espalha Header, Card e Footer */
+  padding: 20px;
+}
+
+/* --- Cabeçalho --- */
+.top-header {
+  width: 100%;
+  max-width: 1100px; /* Alinhamento visual com o card */
+  padding: 20px 0;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #5a5a5a;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  align-self: center;
+}
+
+.paw-icon {
+  font-size: 1.5rem;
+}
+
+/* --- O Card Flutuante --- */
+.auth-card {
+  display: flex;
+  width: 100%;
+  max-width: 1000px; /* Largura máxima do card */
+  background-color: white;
+  border-radius: 12px; /* Bordas arredondadas do card inteiro */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); /* A sombra suave */
+  overflow: hidden; /* Garante que o fundo verde não vaze nas bordas arredondadas */
+  margin: 20px 0;
+  text-align: left;
+}
+
+.card-side {
+  width: 50%;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* --- Lado Esquerdo (Login) --- */
+.left-side {
+  background-color: #ffffff;
+  color: #4a4a4a;
+}
+
+.left-side h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #4a4a4a;
+}
+
+.subtitle {
+  color: #7a7a7a;
+  margin-bottom: 30px;
+  font-weight: 300;
+}
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #555;
+  font-size: 0.95rem;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  font-size: 0.95rem;
+}
+
+.forgot-password {
+  text-align: right;
+  margin-bottom: 30px;
+}
+
+.forgot-password a {
+  color: #84b6a6;
+  text-decoration: none;
+  font-size: 0.85rem;
+}
+
+.btn-primary {
+  width: 100%;
+  padding: 14px;
+  background-color: #84b6a6; /* Verde Sage */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+}
+
+/* --- Lado Direito (Cadastro) --- */
+.right-side {
+  background-color: #84b6a6; /* Verde Sage Fundo */
+  color: white;
+}
+
+.right-side h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.subtitle-white {
+  color: #e6f2ee;
+  margin-bottom: 30px;
+  font-weight: 300;
+}
+
+.input-group-transparent {
+  margin-bottom: 15px;
+}
+
+.input-group-transparent label {
+  display: block;
+  margin-bottom: 6px;
+  color: #e6f2ee;
+  font-size: 0.9rem;
+}
+
+/* Inputs translúcidos estilo "glass" */
+.input-group-transparent input {
+  width: 100%;
+  padding: 14px;
+  background-color: rgba(255, 255, 255, 0.25);
+  border: none;
+  border-radius: 5px;
+  color: white;
+  outline: none;
+  font-size: 0.95rem;
+}
+
+.input-group-transparent input::placeholder {
+  color: #dbece6;
+}
+
+.row {
+  display: flex;
+  gap: 15px;
+}
+
+.half {
+  width: 50%;
+}
+
+.btn-secondary {
+  width: 100%;
+  padding: 14px;
+  background-color: #fcfcfc; /* Botão Branco */
+  color: #4a4a4a;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background 0.2s;
+}
+
+.btn-secondary:hover {
+  background-color: #f0f0f0;
+}
+
+/* --- Rodapé --- */
+.bottom-footer {
+  color: #888;
+  font-size: 0.85rem;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .auth-card {
+    flex-direction: column;
+    max-width: 400px;
+  }
+  .card-side {
+    width: 100%;
+    padding: 30px;
+  }
+}
