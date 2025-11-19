@@ -1,5 +1,5 @@
 import React from 'react';
-import '../Adocao.css';
+import '../styles/Adocao.css';
 
 const AdoptionPage = () => {
   return (

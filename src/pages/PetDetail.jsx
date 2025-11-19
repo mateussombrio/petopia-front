@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../PetDetail.css';
+import '../styles/PetDetail.css';
 
 const PetDetail = () => {
   // Estado para trocar a imagem principal ao clicar nas miniaturas
@@ -85,7 +85,7 @@ const PetDetail = () => {
                     </div>
                     <div className="location-badge">
                         <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                        Sunnyville, CA
+                        Florianópolis, SC
                     </div>
                 </div>
 
@@ -95,27 +95,27 @@ const PetDetail = () => {
                     <div className="facts-grid">
                         <div className="fact-item">
                             <span className="icon">🐾</span>
-                            <span>Breed: Labrador Mix</span>
+                            <span>Raça: Labrador Mix</span>
                         </div>
                         <div className="fact-item">
                             <span className="icon">🎂</span>
-                            <span>Age: 2 years</span>
+                            <span>Idade: 2 years</span>
                         </div>
                         <div className="fact-item">
                             <span className="icon">♂️</span>
-                            <span>Gender: Male</span>
+                            <span>Gênero: Male</span>
                         </div>
                         <div className="fact-item">
                             <span className="icon">📏</span>
-                            <span>Size: Medium (55 lbs)</span>
+                            <span>Tamanho: Medium (55 lbs)</span>
                         </div>
                         <div className="fact-item">
                             <span className="icon">❤️</span>
-                            <span>Good with kids</span>
+                            <span>Carinhoso com crianças</span>
                         </div>
                         <div className="fact-item">
                             <span className="icon">💉</span>
-                            <span>Vaccinated</span>
+                            <span>Vacinado</span>
                         </div>
                     </div>
                 </div>
@@ -134,7 +134,7 @@ const PetDetail = () => {
                     </p>
                 </div>
 
-                <button className="btn-inquire">Inquire About Buddy</button>
+                <button className="btn-inquire">Adotar</button>
 
                 <div className="share-row">
                     <button className="btn-share-main">

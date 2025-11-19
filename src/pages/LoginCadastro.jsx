@@ -1,5 +1,5 @@
 import React from 'react';
-import '../LoginCadastro.css'; // Certifique-se que o arquivo CSS está na mesma pasta
+import '../styles/LoginCadastro.css'; // Certifique-se que o arquivo CSS está na mesma pasta
 
 const LoginCadastro = () => {
   return (
