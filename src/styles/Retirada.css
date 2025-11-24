@@ -1,4 +1,6 @@
-
+* p {
+  color: #5b5941;
+}
 
 body {
   background-color: #f9f9f9; /* Fundo cinza bem claro */
@@ -17,9 +19,8 @@ body {
   width: 58%;
   border-bottom: 1px solid #e0e0e0;
   margin-bottom: 70px;
-  flex-direction: row;
   display: flex;
-  justify-content: space-between;
+  flex-direction: row;
 }
 
 .header-content {
@@ -28,6 +29,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
 }
 
 .logo-section {
@@ -104,22 +106,15 @@ body {
   text-align: left;
 }
 
-.adoption_title_div{
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    margin-bottom: 60px;
+.adoption_title_div {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-bottom: 60px;
 }
 
-.adoption_title_div h1{
-    color: #70a395 ;
-}
-
-.title-section h1 {
-  color: #70a395; /* Verde Sage mais escuro para o título */
-  font-size: 2.2rem;
-  margin-bottom: 10px;
-  font-weight: 800;
+.adoption_title_div h1 {
+  color: #70a395;
 }
 
 .title-section p {
@@ -137,7 +132,6 @@ body {
   margin-bottom: 15px;
   color: #444;
   font-size: 1rem;
-  
 }
 
 .btn-copy {
@@ -154,9 +148,9 @@ body {
 }
 
 .copied-text {
-    font-size: 0.8rem;
-    color: #8ab6a9;
-    font-weight: bold;
+  font-size: 0.8rem;
+  color: #8ab6a9;
+  font-weight: bold;
 }
 
 /* Alert Box */
@@ -209,7 +203,7 @@ body {
   background-color: white;
   border-radius: 16px;
   border: 1px solid #f0f0f0;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
   overflow: hidden;
 }
 
@@ -223,8 +217,8 @@ body {
 }
 
 .pet-image-wrapper {
-  width: 200px;
-  height: 200px;
+  width: 400px;
+  height: 400px;
   border-radius: 12px;
   overflow: hidden;
   background-color: #e8dfcf; /* Cor de fundo da imagem do animal */
@@ -267,6 +261,7 @@ body {
   font-weight: 600;
   cursor: pointer;
   transition: background 0.2s;
+  margin-top: 20px
 }
 
 .btn-primary:hover {
@@ -415,7 +410,7 @@ body {
     flex-direction: column;
     text-align: center;
   }
-  
+
   .action-buttons {
     justify-content: center;
     flex-wrap: wrap;
@@ -426,7 +421,7 @@ body {
     gap: 15px;
     text-align: center;
   }
-  
+
   .header-content {
     flex-wrap: wrap;
     justify-content: center;
