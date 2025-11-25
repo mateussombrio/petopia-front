@@ -1,0 +1,82 @@
+.content-container {
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.header {
+  margin-top: 60px;
+  width: 58%;
+  border-bottom: 1px solid #e0e0e0;
+  margin-bottom: 70px;
+  display: flex;
+  flex-direction: row;
+}
+
+.header-content {
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-paw{
+  max-width: 36px;
+  max-height: 36px;
+}
+
+.logo-text {
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #4a4a4a;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 30px;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: #666;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.nav-menu a.active {
+  color: #8ab6a9;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.btn-my-account {
+  background-color: #8ab6a9;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.user-avatar img {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #eee;
+}

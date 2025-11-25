@@ -1,0 +1,32 @@
+.content-container {
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.footer {
+  border-top: 1px solid #eee;
+  padding: 30px 0;
+  background-color: #f9f9f9;
+}
+
+.footer-content {
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  gap: 50px;
+  color: #888;
+  font-size: 0.85rem;
+}
+
+.footer-links {
+  display: flex;
+  gap: 20px;
+}
+
+.footer-links a {
+  color: #666;
+  text-decoration: none;
+}
