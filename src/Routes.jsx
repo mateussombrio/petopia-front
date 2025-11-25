@@ -1,0 +1,53 @@
+import {
+  Navigate,
+  RouterProvider,
+  createBrowserRouter,
+} from "react-router-dom";
+
+import { StrictMode } from "react";
+import LoginCadastro from "./pages/LoginCadastro.jsx";
+import AdoptionPage from "./pages/Adocao.jsx";
+import "./styles/LoginCadastro.css";
+import "./styles/Adocao.css";
+import "./styles/index.css";
+import PetDetail from "./pages/PetDetail.jsx";
+import "./styles/PetDetail.css";
+import CadastroPet from "./pages/CadastroPet.jsx";
+import "./styles/CadastroPet.css";
+import Retirada from "./pages/Retirada.jsx";
+import "./styles/Retirada.css";
+import Layout from "./pages/Layout.jsx";
+
+function Routes() {
+  const router = createBrowserRouter([
+    {
+      path: "/",
+        element: <Layout/>,
+      children: [
+        {
+          path: "/",
+          element: <AdoptionPage />,
+        },
+        {
+          path: "/animais/:id",
+          element: <PetDetail />,
+        },
+        {
+          path: "/cadastro",
+          element: <CadastroPet />,
+        },
+        {
+          path: "/login",
+          element: <LoginCadastro />,
+        },
+        {
+          path: "/retirada/:id",
+          element: <Retirada />,
+        },
+      ],
+    },
+  ]);
+  return <RouterProvider router={router} />;
+}
+
+export default Routes;

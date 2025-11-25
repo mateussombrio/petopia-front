@@ -1,12 +1,7 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.jsx'
-import AuthPage from './pages/LoginCadastro.jsx'
-import "./LoginCadastro.css"
+import ReactDOM from 'react-dom/client'
+import Routes from './Routes.jsx'
+import './styles/index.css'
 
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <AuthPage />
-  </StrictMode>,
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <Routes/>
 )

@@ -1,9 +1,10 @@
-import React from "react";
-import "../LoginCadastro.css"; // Certifique-se que o arquivo CSS está na mesma pasta
+import React from 'react';
+import '../styles/LoginCadastro.css'; // Certifique-se que o arquivo CSS está na mesma pasta
 
 const LoginCadastro = () => {
   return (
     <div className="main-wrapper">
+      
       {/* Cabeçalho fora do card */}
       <header className="top-header">
         <span className="paw-icon">🐾</span> Petopia
@@ -11,6 +12,7 @@ const LoginCadastro = () => {
 
       {/* O Card Centralizado (Container Principal) */}
       <div className="auth-card">
+        
         {/* Lado Esquerdo - Login (Fundo Branco) */}
         <div className="card-side left-side">
           <div className="content-box">
@@ -32,9 +34,7 @@ const LoginCadastro = () => {
                 <a href="#forgot">Esqueceu sua senha?</a>
               </div>
 
-              <button type="button" className="btn-primary">
-                Login
-              </button>
+              <button type="button" className="btn-primary">Login</button>
             </form>
           </div>
         </div>
@@ -58,8 +58,7 @@ const LoginCadastro = () => {
 
               <div className="input-group-transparent">
                 <label>Endereço</label>
-                <input type="text" placeholder="Digite sua senha" />{" "}
-                {/* Mantendo fiel à imagem, mesmo parecendo erro de copy no design original */}
+                <input type="text" placeholder="Digite sua senha" /> {/* Mantendo fiel à imagem, mesmo parecendo erro de copy no design original */}
               </div>
 
               <div className="row">
@@ -75,12 +74,10 @@ const LoginCadastro = () => {
 
               <div className="input-group-transparent">
                 <label>Senha</label>
-                <input type="password" placeholder="Confirme sua senha" />
+                <input type="password" placeholder="Digite sua senha" />
               </div>
 
-              <button type="button" className="btn-secondary">
-                Criar conta
-              </button>
+              <button type="button" className="btn-secondary">Criar conta</button>
             </form>
           </div>
         </div>
