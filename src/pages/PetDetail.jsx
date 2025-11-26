@@ -117,17 +117,6 @@ const PetDetail = () => {
                     </div>
                 </div>
 
-                <div className="shelter-info">
-                    <div className="shelter-logo">
-                        <img src="https://cdn-icons-png.flaticon.com/512/1077/1077063.png" alt="Shelter Logo" />
-                    </div>
-                    <div className="shelter-details">
-                        <h4>Sunny Paws Rescue</h4>
-                        <p>123 Adoption Lane, Sunnyville, CA</p>
-                        <a href="#">Visit their website</a>
-                    </div>
-                </div>
-
             </div>
         </div>
       </main>

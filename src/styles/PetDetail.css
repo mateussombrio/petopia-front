@@ -255,3 +255,9 @@
   text-decoration: none;
   font-weight: 600;
 }
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  max-width: 1700px;
+}

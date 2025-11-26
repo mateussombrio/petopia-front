@@ -1,67 +1,34 @@
-import React from 'react';
+import { useEffect } from 'react';
+import React, {useState} from 'react';
 import '../styles/Home.css';
+import axios from 'axios';
+
 
 const HomePage = () => {
-  // --- DADOS REAIS/VARIADOS PARA OS CARDS ---
-  const animals = [
-    {
-      id: 1,
-      name: 'Alan',
-      breed: 'Jack Russell Mix',
-      age: '2 anos',
-      // Imagem original do design
-      image: 'https://images.unsplash.com/photo-1591768575198-88dac53fbd0a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80' 
-    },
-    {
-      id: 2,
-      name: 'Bella',
-      breed: 'Golden Retriever',
-      age: '6 meses',
-      image: 'https://images.unsplash.com/photo-1601979031925-424e53b6caaa?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80'
-    },
-    {
-      id: 3,
-      name: 'Charlie',
-      breed: 'Bulldog Francês',
-      age: '3 anos',
-      image: 'https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80'
-    },
-    {
-      id: 4,
-      name: 'Max',
-      breed: 'Pastor Alemão',
-      age: '1 ano',
-      image: 'https://images.unsplash.com/photo-1589924691169-a3e8c6ab19f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80'
-    },
-    {
-      id: 5,
-      name: 'Lucy',
-      breed: 'Corgi Pembroke',
-      age: '4 anos',
-      image: 'https://images.unsplash.com/photo-1612536053345-bb776757619d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80'
-    },
-    {
-      id: 6,
-      name: 'Cooper',
-      breed: 'Labrador Retriever',
-      age: '2 anos',
-      image: 'https://images.unsplash.com/photo-1605897472359-85e4b94d685d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80'
-    },
-    {
-      id: 7,
-      name: 'Luna',
-      breed: 'Husky Siberiano',
-      age: '5 anos',
-      image: 'https://images.unsplash.com/photo-1605568427561-40dd23c2acea?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80'
-    },
-    {
-      id: 8,
-      name: 'Buddy',
-      breed: 'Beagle',
-      age: '1 ano',
-      image: 'https://images.unsplash.com/photo-1537151625747-768eb6cf92b2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80'
-    }
-  ];
+
+  const [busca, setBusca] = useState('');
+
+  const [animais, setAnimais] = useState([])
+
+  useEffect(() => {
+    // Com Axios é mais direto:
+    axios.get('http://localhost:3000/animal')
+      .then((response) => {
+        // O Axios coloca os dados dentro de "response.data"
+        setAnimais(response.data); 
+      })
+      .catch((error) => {
+        console.error("Erro ao buscar animais:", error);
+      });
+  }, []);
+  
+  const animaisFiltrados = animais.filter((animal) => {
+    const termo = busca.toLowerCase();
+    return (
+      animal.nome.toLowerCase().includes(termo) || 
+      animal.raca.toLowerCase().includes(termo)
+    );
+  });
 
   return (
     <div className="page-wrapper">
@@ -87,22 +54,11 @@ const HomePage = () => {
                      <circle cx="11" cy="11" r="8"></circle>
                      <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                    </svg>
-                   <input type="text" placeholder="Digite aqui" />
+                   <input type="text" placeholder="Digite aqui" value={busca} onChange={(e) => setBusca(e.target.value)}/>
                  </div>
                  <button className="btn-search">Pesquisar</button>
                </div>
              </div>
-          </div>
-
-          <div className="filters-container">
-            <div className="filter-dropdown">
-              <span>Animal Type</span>
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
-            </div>
-            <div className="filter-dropdown">
-              <span>Idade</span>
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
-            </div>
           </div>
         </section>
 
@@ -111,51 +67,27 @@ const HomePage = () => {
           <h2>Animais para Adoção</h2>
           
           <div className="animals-grid">
-            {/* O map agora itera sobre os dados únicos de cada animal */}
-            {animals.map((animal) => (
-              <div key={animal.id} className="animal-card">
-                <div className="card-image">
-                  {/* Usa a imagem específica do objeto animal */}
-                  <img src={animal.image} alt={animal.name} />
+            {animaisFiltrados.length > 0 ? (
+              animaisFiltrados.map((animal) => (
+                <div key={animal.id} className="animal-card">
+                  <div className="card-image">
+                    <img src={animal.foto} alt={animal.nome} />
+                  </div>
+                  <div className="card-info">
+                    <h3>{animal.nome}</h3>
+                    <p>{animal.raca}, {animal.idade} ano/anos</p>
+                  </div>
                 </div>
-                <div className="card-info">
-                  {/* Usa o nome específico */}
-                  <h3>{animal.name}</h3>
-                  {/* Usa a raça e idade específicas */}
-                  <p>{animal.breed}, {animal.age}</p>
-                </div>
-              </div>
-            ))}
+              ))
+            ) : (
+              /* Opcional: Mensagem caso nenhum animal seja encontrado */
+              <p style={{ gridColumn: "1 / -1", textAlign: "center" }}>
+                Nenhum animal encontrado com esse nome ou raça.
+              </p>
+            )}
           </div>
         </section>
-
       </main>
-
-      {/* --- FOOTER (Sem alterações) --- */}
-      <footer className="footer">
-        <div className="footer-container">
-          <div className="footer-col">
-            <h4>Petopia</h4>
-            <p className="footer-desc">
-              Encontrando um lar para<br/>
-              o seu amigo de quatro<br/>
-              patas.
-            </p>
-          </div>
-          <div className="footer-col">
-            <h4>Links</h4>
-            <ul>
-              <li><a href="#">FAQ</a></li>
-              <li><a href="#">Políticas de Privacidade</a></li>
-              <li><a href="#">Contato</a></li>
-            </ul>
-          </div>
-        </div>
-        <div className="footer-bottom">
-          <p>@2025 Petopia. Todos os direitos reservados</p>
-        </div>
-      </footer>
-
     </div>
   );
 };

@@ -5,71 +5,12 @@
   min-height: 100vh;
 }
 
-/* --- HEADER --- */
-.header {
-  padding: 20px 0;
-  background-color: #f9f9f9;
-}
-
-.header-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-weight: 700;
-  font-size: 1.3rem;
-  color: #5c5c42;
-}
-
-.logo svg {
-  fill: #5c5c42;
-}
-
-.navbar {
-  display: flex;
-  gap: 40px;
-}
-
-.navbar a {
-  text-decoration: none;
-  color: #666;
-  font-size: 0.95rem;
-  transition: color 0.2s;
-}
-
-.navbar a:hover, .navbar a.active {
-  color: #333;
-  font-weight: 500;
-}
-
-.btn-login {
-  background-color: #8ab6a9;
-  color: white;
-  border: none;
-  padding: 10px 25px;
-  border-radius: 6px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.btn-login:hover {
-  background-color: #76a094;
-}
 
 /* --- MAIN CONTENT --- */
 .main-content {
   max-width: 1200px;
   margin: 0;
-  margin-left: 55%;
+  margin-left: 60%;
   padding: 0 20px;
   width: 100%;
 }
@@ -83,7 +24,7 @@
 .hero-image-wrapper {
   position: relative;
   width: 100%;
-  height: 500px;
+  height: 600px;
   border-radius: 20px;
   overflow: hidden;
 }
