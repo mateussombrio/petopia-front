@@ -10,62 +10,41 @@ const CadastroPet = () => {
 
   return (
     <div className="page-wrapper">
-      
-      {/* --- HEADER --- */}
-      <header className="header">
-        <div className="header-container">
-          <div className="logo">
-            <div className="logo-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
-                 <path d="M8 5v14l11-7z" /> {/* Ícone estilo Play simples */}
-              </svg>
-            </div>
-            <span>PetAdopt</span>
-          </div>
-
-          <nav className="nav-links">
-            <a href="#home">Home</a>
-            <a href="#adopt">Adopt</a>
-            <a href="#about">About Us</a>
-            <a href="#donate">Donate</a>
-          </nav>
-        </div>
-      </header>
-
+    
       {/* --- MAIN CONTENT --- */}
       <main className="main-content">
         <div className="form-header">
-          <h1>Add a New Animal for Adoption</h1>
-          <p>Please fill in the details below to create a profile for our new arrival.</p>
+          <h1>Cadastre um novo animal para ser adotado</h1>
+          <p>Preencha os campos abaixo para cadastrar o animal</p>
         </div>
 
         <form className="animal-form">
           
           {/* SECTION: ANIMAL DETAILS */}
           <div className="form-section">
-            <h3>Animal Details</h3>
+            <h3>Detalhes do Animal</h3>
             <div className="divider"></div>
 
             <div className="input-group">
-              <label>Animal Name</label>
+              <label>Nome</label>
               <input type="text" placeholder="Enter the animal's name" />
             </div>
 
             <div className="form-row">
               <div className="input-group">
-                <label>Breed</label>
+                <label>Raça</label>
                 <input type="text" placeholder="e.g., Golden Retriever" />
               </div>
               <div className="input-group">
-                <label>Age</label>
+                <label>Idade</label>
                 <input type="text" placeholder="e.g., 2 years" />
               </div>
             </div>
 
             <div className="input-group">
-              <label>Gender</label>
+              <label>Gênero</label>
               <div className="gender-options">
-                {['Male', 'Female', 'Unknown'].map((gender) => (
+                {['Macho', 'Fêmea'].map((gender) => (
                   <button
                     key={gender}
                     type="button"
@@ -81,23 +60,23 @@ const CadastroPet = () => {
 
           {/* SECTION: HEALTH & PHOTO */}
           <div className="form-section">
-            <h3>Health & Photo</h3>
+            <h3>Saúde e Foto</h3>
             <div className="divider"></div>
 
             <div className="input-group">
-              <label>Health Status</label>
+              <label>Status de Saúde</label>
               <div className="select-wrapper">
                 <select defaultValue="">
-                  <option value="" disabled hidden>Good</option>
-                  <option value="good">Good</option>
-                  <option value="needs-attention">Needs Attention</option>
-                  <option value="critical">Critical</option>
+                  <option value="" disabled hidden>Saudável</option>
+                  <option value="good">Saudável</option>
+                  <option value="needs-attention">Precisa de Atenção</option>
+                  <option value="critical">Crítico</option>
                 </select>
               </div>
             </div>
 
             <div className="input-group">
-              <label>Photo</label>
+              <label>Foto</label>
               <div className="upload-area">
                 <div className="upload-content">
                   <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#999" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -115,7 +94,7 @@ const CadastroPet = () => {
 
           {/* SUBMIT BUTTON */}
           <div className="form-actions">
-            <button type="submit" className="btn-submit">Submit Animal Profile</button>
+            <button type="submit" className="btn-submit">Cadastrar Animal</button>
           </div>
 
         </form>

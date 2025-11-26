@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import '../styles/PetDetail.css';
 
+
 const PetDetail = () => {
   // Estado para trocar a imagem principal ao clicar nas miniaturas
   const [mainImage, setMainImage] = useState(
@@ -16,38 +17,6 @@ const PetDetail = () => {
 
   return (
     <div className="page-wrapper">
-      
-      {/* --- HEADER --- */}
-      <header className="header">
-        <div className="header-left">
-            {/* Ícone simples de pata + Logo */}
-            <div className="logo-container">
-                <div className="logo-icon">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 2C10.9 2 10 2.9 10 4C10 5.1 10.9 6 12 6C13.1 6 14 5.1 14 4C14 2.9 13.1 2 12 2Z"/>
-                        <path d="M4 8C2.9 8 2 8.9 2 10C2 11.1 2.9 12 4 12C5.1 12 6 11.1 6 10C6 8.9 5.1 8 4 8Z"/>
-                        <path d="M20 8C18.9 8 18 8.9 18 10C18 11.1 18.9 12 20 12C21.1 12 22 11.1 22 10C22 8.9 21.1 8 20 8Z"/>
-                        <path d="M12 8C9.33 8 7 9.5 5.5 11.8C4.8 12.9 5.5 14.5 6.7 14.9L8 15.3V19C8 20.1 8.9 21 10 21H14C15.1 21 16 20.1 16 19V15.3L17.3 14.9C18.5 14.5 19.2 12.9 18.5 11.8C17 9.5 14.67 8 12 8Z"/>
-                    </svg>
-                </div>
-                <span className="logo-text">PetAdopt</span>
-            </div>
-        </div>
-
-        <nav className="navbar">
-          <a href="#home">Home</a>
-          <a href="#dogs" className="active">Dogs</a>
-          <a href="#cats">Cats</a>
-          <a href="#about">About Us</a>
-        </nav>
-
-        <div className="header-right">
-            <button className="btn-donate">Donate</button>
-            <div className="user-avatar">
-                <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="User" />
-            </div>
-        </div>
-      </header>
 
       <main className="container">
         {/* Breadcrumb */}

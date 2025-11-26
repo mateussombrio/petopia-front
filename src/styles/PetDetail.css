@@ -1,100 +1,15 @@
-/* Reset básico */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: 'Segoe UI', 'Roboto', Helvetica, Arial, sans-serif;
-}
-
-body {
-  background-color: #fcfcfc;
-  color: #333;
-}
-
 .page-wrapper {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-}
-
-/* --- Header --- */
-.header {
-  margin-top: 60px;
-  width: 58%;
-  border-bottom: 1px solid #e0e0e0;
-  margin-bottom: 100px;
-  flex-direction: row;
-  display: flex;
-  justify-content: space-between;
-}
-
-.header-left .logo-container {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.logo-icon {
-  width: 32px;
-  height: 32px;
-  background-color: #8ab6a9;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.logo-text {
-  font-weight: 700;
-  font-size: 1.2rem;
-  color: #555;
-}
-
-.navbar {
-  display: flex;
-  gap: 30px;
-}
-
-.navbar a {
-  text-decoration: none;
-  color: #777;
-  font-size: 0.95rem;
-}
-
-.navbar a.active {
-  color: #8ab6a9;
-  font-weight: 600;
-}
-
-.header-right {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
-.btn-donate {
-  background-color: #f3dcb3; /* Cor bege/pêssego do botão */
-  color: #5c4d3c;
-  border: none;
-  padding: 8px 20px;
-  border-radius: 20px;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-.user-avatar img {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  object-fit: cover;
+  max-width: 1700px;
 }
 
 /* --- Main Content --- */
-.container {
+
+.container{
   max-width: 1200px;
-  margin: 0 auto;
-  padding: 30px 20px;
-  width: 100%;
+  padding: 50px 20px;
 }
 
 .breadcrumb {
@@ -111,11 +26,11 @@ body {
 .content-grid {
   display: flex;
   gap: 50px;
+  width: 1200px;
 }
-
 /* Coluna Esquerda (Imagens) */
 .left-column {
-  flex: 1.2;
+  width: 50%;
 }
 
 .main-image-container {
@@ -147,7 +62,8 @@ body {
   transition: opacity 0.2s;
 }
 
-.thumb-container:hover, .thumb-container.active {
+.thumb-container:hover,
+.thumb-container.active {
   opacity: 1;
 }
 
@@ -159,7 +75,7 @@ body {
 
 /* Coluna Direita (Info) */
 .right-column {
-  flex: 1;
+  width: 50%;
 }
 
 .title-section {
@@ -338,23 +254,4 @@ body {
   color: #8ab6a9;
   text-decoration: none;
   font-weight: 600;
-}
-
-/* Responsividade */
-@media (max-width: 900px) {
-  .content-grid {
-    flex-direction: column;
-  }
-  
-  .header {
-    padding: 15px;
-  }
-  
-  .navbar {
-    display: none; /* Simplificação para mobile */
-  }
-
-  .thumbnails-row {
-    gap: 10px;
-  }
 }
