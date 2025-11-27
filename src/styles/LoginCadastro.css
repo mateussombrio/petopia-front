@@ -1,37 +1,11 @@
-/* Reset e Fontes */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
 
 /* Wrapper que ocupa a tela inteira e centraliza o card */
 .main-wrapper {
-  background-color: #fcfcfc; /* Fundo quase branco da página inteira */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between; /* Espalha Header, Card e Footer */
- 
-}
-
-/* --- Cabeçalho --- */
-.top-header {
-  width: 100%;
-  max-width: 1100px; /* Alinhamento visual com o card */
-  padding: 20px 0;
-  font-size: 1.3rem;
-  font-weight: 600;
-  color: #5a5a5a;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  align-self: center;
-}
-
-.paw-icon {
-  font-size: 1.5rem;
+  margin-top: 4%;
 }
 
 /* --- O Card Flutuante --- */
@@ -191,14 +165,6 @@
 
 .btn-secondary:hover {
   background-color: #f0f0f0;
-}
-
-/* --- Rodapé --- */
-.bottom-footer {
-  color: #888;
-  font-size: 0.85rem;
-  margin-bottom: 10px;
-  text-align: center;
 }
 
 /* Responsividade */

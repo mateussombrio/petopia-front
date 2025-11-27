@@ -1,15 +1,10 @@
 import React from 'react';
 import '../styles/LoginCadastro.css'; // Certifique-se que o arquivo CSS está na mesma pasta
+import '../styles/Footer.css'
 
 const LoginCadastro = () => {
   return (
     <div className="main-wrapper">
-      
-      {/* Cabeçalho fora do card */}
-      <header className="top-header">
-        <span className="paw-icon">🐾</span> Petopia
-      </header>
-
       {/* O Card Centralizado (Container Principal) */}
       <div className="auth-card">
         
@@ -82,11 +77,16 @@ const LoginCadastro = () => {
           </div>
         </div>
       </div>
-
-      {/* Rodapé fora do card */}
-      <footer className="bottom-footer">
-        @2025 Petopia. Todos os direitos reservados
-      </footer>
+      <footer className="footer">
+      <div className="footer-content">
+        <p>© 2025 Petopia. Todos os direitos reservados.</p>
+        <div className="footer-links">
+          <a href="#">Políticas de Privacidade</a>
+          <a href="#">Termos de Serviço</a>
+          <a href="#">Central de Ajuda</a>
+        </div>
+      </div>
+    </footer>
     </div>
   );
 };
