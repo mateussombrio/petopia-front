@@ -16,17 +16,21 @@ import CadastroPet from "./pages/CadastroPet.jsx";
 import "./styles/CadastroPet.css";
 import Retirada from "./pages/Retirada.jsx";
 import "./styles/Retirada.css";
+import HomePage from "./pages/Home.jsx";
+import "./styles/Home.css";
+import Deletar from "./pages/Deletar.jsx";
+import './styles/Deletar.css'
 import Layout from "./pages/Layout.jsx";
 
 function Routes() {
   const router = createBrowserRouter([
     {
       path: "/",
-        element: <Layout/>,
+      element: <Layout />,
       children: [
         {
           path: "/",
-          element: <AdoptionPage />,
+          element: <HomePage />,
         },
         {
           path: "/animais/:id",
@@ -37,16 +41,24 @@ function Routes() {
           element: <CadastroPet />,
         },
         {
-          path: "/login",
-          element: <LoginCadastro />,
-        },
-        {
           path: "/retirada/:id",
           element: <Retirada />,
         },
+        {
+          path: "/deletar",
+          element: <Deletar/>
+        }
       ],
     },
+
+    // Sem Header, mas com Footer
+    {
+      path: "/login",
+      element: <LoginCadastro />,
+    },
   ]);
+
+  
   return <RouterProvider router={router} />;
 }
 

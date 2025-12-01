@@ -1,80 +1,16 @@
-/* Reset e Fonte */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
-}
-
-body {
-  background-color: #fcfcfc;
-  color: #333;
-}
-
 .page-wrapper {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-}
-
-/* --- HEADER --- */
-.header {
-  background-color: #f9f9f9;
-  padding: 20px 0;
-  border-bottom: 1px solid #eaeaea;
-}
-
-.header-container {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 0 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-weight: 700;
-  font-size: 1.2rem;
-  color: #444;
-}
-
-.logo-icon {
-  width: 32px;
-  height: 32px;
-  background-color: #8ab6a9; /* Verde Sage */
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.nav-links {
-  display: flex;
-  gap: 30px;
-}
-
-.nav-links a {
-  text-decoration: none;
-  color: #666;
-  font-size: 0.95rem;
-  transition: color 0.2s;
-}
-
-.nav-links a:hover {
-  color: #333;
+  max-width: 1200px;
 }
 
 /* --- MAIN FORM --- */
 .main-content {
-  flex: 1;
   max-width: 700px;
-  margin: 60px auto;
+  margin-top: 60px;
+  margin-left: 55%;
   padding: 0 20px;
-  width: 100%;
 }
 
 .form-header {
@@ -270,7 +206,7 @@ select:focus {
     flex-direction: column;
     gap: 0;
   }
-  
+
   .nav-links {
     display: none; /* Menu simplificado para mobile */
   }
@@ -278,7 +214,7 @@ select:focus {
   .header-container {
     justify-content: center;
   }
-  
+
   .gender-options {
     flex-wrap: wrap;
   }

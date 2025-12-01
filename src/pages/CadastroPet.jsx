@@ -1,121 +1,184 @@
 import React, { useState } from 'react';
+import axios from 'axios'; // 1. Importar Axios
 import '../styles/CadastroPet.css';
 
 const CadastroPet = () => {
-  const [selectedGender, setSelectedGender] = useState('');
+  // 2. Criar um objeto de estado único para o formulário
+  // Os nomes das chaves (nome, raca, etc) devem ser iguais aos que seu Backend espera
+  const [formData, setFormData] = useState({
+    nome: '',
+    raca: '',
+    idade: '',
+    genero: '',
+    status_saude: 'Saudável', // Valor padrão
+    foto: '' // Como é um link, iniciamos como string vazia
+  });
 
+  // Função genérica para atualizar os inputs de texto
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  // Função específica para os botões de gênero
   const handleGenderSelect = (gender) => {
-    setSelectedGender(gender);
+    setFormData({
+      ...formData,
+      genero: gender
+    });
+  };
+
+  // 3. Função de envio do formulário
+  const handleSubmit = async (e) => {
+    e.preventDefault(); // Previne que a página recarregue
+
+    try {
+      // Envia os dados para o backend (ajuste a rota se necessário)
+      const response = await axios.post('https://petopia-n81j.onrender.com/animal', formData);
+      
+      alert('Animal cadastrado com sucesso!');
+      console.log(response.data);
+      
+      // Opcional: Limpar o formulário após sucesso
+      setFormData({
+        nome: '',
+        raca: '',
+        idade: '',
+        genero: '',
+        status_saude: 'Saudável',
+        foto: ''
+      });
+
+    } catch (error) {
+      console.error('Erro ao cadastrar:', error);
+      alert('Erro ao cadastrar animal. Verifique o console.');
+    }
   };
 
   return (
     <div className="page-wrapper">
-      
-      {/* --- HEADER --- */}
-      <header className="header">
-        <div className="header-container">
-          <div className="logo">
-            <div className="logo-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
-                 <path d="M8 5v14l11-7z" /> {/* Ícone estilo Play simples */}
-              </svg>
-            </div>
-            <span>PetAdopt</span>
-          </div>
-
-          <nav className="nav-links">
-            <a href="#home">Home</a>
-            <a href="#adopt">Adopt</a>
-            <a href="#about">About Us</a>
-            <a href="#donate">Donate</a>
-          </nav>
-        </div>
-      </header>
-
-      {/* --- MAIN CONTENT --- */}
       <main className="main-content">
         <div className="form-header">
-          <h1>Add a New Animal for Adoption</h1>
-          <p>Please fill in the details below to create a profile for our new arrival.</p>
+          <h1>Cadastre um novo animal para ser adotado</h1>
+          <p>Preencha os campos abaixo para cadastrar o animal</p>
         </div>
 
-        <form className="animal-form">
+        {/* 4. Adicionar onSubmit no form */}
+        <form className="animal-form" onSubmit={handleSubmit}>
           
-          {/* SECTION: ANIMAL DETAILS */}
           <div className="form-section">
-            <h3>Animal Details</h3>
+            <h3>Detalhes do Animal</h3>
             <div className="divider"></div>
 
             <div className="input-group">
-              <label>Animal Name</label>
-              <input type="text" placeholder="Enter the animal's name" />
+              <label>Nome</label>
+              {/* 5. Conectar inputs ao estado (name, value, onChange) */}
+              <input 
+                type="text" 
+                name="nome"
+                value={formData.nome}
+                onChange={handleChange}
+                placeholder="Nome do animal" 
+                required
+              />
             </div>
 
             <div className="form-row">
               <div className="input-group">
-                <label>Breed</label>
-                <input type="text" placeholder="e.g., Golden Retriever" />
+                <label>Raça</label>
+                <input 
+                  type="text" 
+                  name="raca"
+                  value={formData.raca}
+                  onChange={handleChange}
+                  placeholder="Ex: Golden Retriever" 
+                  required
+                />
               </div>
               <div className="input-group">
-                <label>Age</label>
-                <input type="text" placeholder="e.g., 2 years" />
+                <label>Idade</label>
+                <input 
+                  type="text" 
+                  name="idade"
+                  value={formData.idade}
+                  onChange={handleChange}
+                  placeholder="Ex: 2 anos" 
+                  required
+                />
               </div>
             </div>
 
             <div className="input-group">
-              <label>Gender</label>
+              <label>Gênero</label>
               <div className="gender-options">
-                {['Male', 'Female', 'Unknown'].map((gender) => (
+                {['Macho', 'Fêmea'].map((gender) => (
                   <button
                     key={gender}
-                    type="button"
-                    className={`gender-btn ${selectedGender === gender ? 'active' : ''}`}
+                    type="button" // Importante ser type="button" para não submeter o form
+                    className={`gender-btn ${formData.genero === gender ? 'active' : ''}`}
                     onClick={() => handleGenderSelect(gender)}
                   >
                     {gender}
                   </button>
                 ))}
               </div>
+              {/* Input escondido para garantir validação HTML se necessário, ou apenas controle visual acima */}
             </div>
           </div>
 
-          {/* SECTION: HEALTH & PHOTO */}
           <div className="form-section">
-            <h3>Health & Photo</h3>
+            <h3>Saúde e Foto</h3>
             <div className="divider"></div>
 
             <div className="input-group">
-              <label>Health Status</label>
+              <label>Status de Saúde</label>
               <div className="select-wrapper">
-                <select defaultValue="">
-                  <option value="" disabled hidden>Good</option>
-                  <option value="good">Good</option>
-                  <option value="needs-attention">Needs Attention</option>
-                  <option value="critical">Critical</option>
+                <select 
+                  name="saude"
+                  value={formData.status_saude}
+                  onChange={handleChange}
+                >
+                  <option value="Saudável">Saudável</option>
+                  <option value="Precisa de Atenção">Precisa de Atenção</option>
+                  <option value="Crítico">Crítico</option>
                 </select>
               </div>
             </div>
 
             <div className="input-group">
-              <label>Photo</label>
-              <div className="upload-area">
-                <div className="upload-content">
-                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#999" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                    <polyline points="17 8 12 3 7 8"></polyline>
-                    <line x1="12" y1="3" x2="12" y2="15"></line>
-                  </svg>
-                  <p><strong>Click to upload</strong> or drag and drop</p>
-                  <span className="upload-hint">SVG, PNG, JPG (MAX. 5MB)</span>
+              <label>Link da Foto (URL)</label>
+              {/* MUDANÇA IMPORTANTE: 
+                  Troquei o drag-and-drop complexo por um input de texto simples 
+                  já que você armazena STRING (URL) no banco.
+              */}
+              <input 
+                type="text" 
+                name="foto"
+                value={formData.foto}
+                onChange={handleChange}
+                placeholder="Cole aqui o link da imagem (https://...)" 
+                required
+              />
+              
+              {/* Preview da imagem (opcional, só aparece se houver link) */}
+              {formData.foto && (
+                <div style={{ marginTop: '10px' }}>
+                  <p style={{fontSize: '12px', color: '#666'}}>Pré-visualização:</p>
+                  <img 
+                    src={formData.foto} 
+                    alt="Preview" 
+                    style={{ width: '100px', height: '100px', objectFit: 'cover', borderRadius: '8px' }} 
+                    onError={(e) => e.target.style.display = 'none'} // Esconde se o link for ruim
+                  />
                 </div>
-                <input type="file" className="file-input-hidden" />
-              </div>
+              )}
             </div>
           </div>
 
-          {/* SUBMIT BUTTON */}
           <div className="form-actions">
-            <button type="submit" className="btn-submit">Submit Animal Profile</button>
+            <button type="submit" className="btn-submit">Cadastrar Animal</button>
           </div>
 
         </form>
