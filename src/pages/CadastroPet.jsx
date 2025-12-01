@@ -36,7 +36,7 @@ const CadastroPet = () => {
 
     try {
       // Envia os dados para o backend (ajuste a rota se necessário)
-      const response = await axios.post('https://petopia-n81j.onrender.com/animal', formData);
+      const response = await axios.post('https://petopia-n81j.onrender.com/cadastro', formData);
       
       alert('Animal cadastrado com sucesso!');
       console.log(response.data);
