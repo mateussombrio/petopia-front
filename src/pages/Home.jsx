@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import "../styles/Home.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import "../styles/Home.css";
 
 
 const HomePage = () => {
@@ -141,9 +140,6 @@ const HomePage = () => {
                   </div>
                   <div className="card-info">
                     <h3>{animal.nome}</h3>
-                    <p>
-                      {animal.raca}, {animal.idade} ano/anos
-                    </p>
                     <p>
                       {animal.raca}, {animal.idade} ano/anos
                     </p>
