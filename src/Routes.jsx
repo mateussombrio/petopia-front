@@ -20,6 +20,8 @@ import HomePage from "./pages/Home.jsx";
 import "./styles/Home.css";
 import Deletar from "./pages/Deletar.jsx";
 import './styles/Deletar.css'
+import Funcionario from "./pages/Funcionario.jsx";
+import './styles/Funcionario.css'
 import Layout from "./pages/Layout.jsx";
 
 function Routes() {
@@ -47,6 +49,10 @@ function Routes() {
         {
           path: "/deletar",
           element: <Deletar/>
+        },
+        {
+          path: "/funcionario",
+          element: <Funcionario/>
         }
       ],
     },

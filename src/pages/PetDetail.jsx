@@ -2,11 +2,13 @@ import React, { useState, useEffect } from "react";
 import "../styles/PetDetail.css";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const PetDetail = () => {
   const { id } = useParams(); // Pega o número que veio na URL (ex: /detalhes/5)
   const [animal, setAnimal] = useState(null);
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate()
 
   useEffect(() => {
     // Busca os dados do animal específico pelo ID
@@ -140,7 +142,7 @@ const PetDetail = () => {
               </p>
             </div>
 
-            <button className="btn-inquire">Adotar</button>
+            <button className="btn-inquire" onClick={ ()=> navigate(`/retirada/${animal.id}`)}>Adotar</button>
 
             <div className="share-row">
               <button className="btn-share-main">
