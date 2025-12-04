@@ -16,10 +16,10 @@ export const Header = () => {
 
         <nav className="nav-menu">
           <a href="/">Home</a>
-          <a href="/cadastro" className="active">
+          <a href="cadastro" className="active">
             Cadastrar
           </a>
-          <a href="/deletar">Deletar</a>
+          <a href="deletar">Deletar</a>
           <a href="#faq">FAQ</a>
         </nav>
 
