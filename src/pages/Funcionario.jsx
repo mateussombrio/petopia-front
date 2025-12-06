@@ -24,14 +24,11 @@ const Funcionario = () => {
     e.preventDefault();
 
     try {
-      const token = localStorage.getItem("token");
 
       const response = await axios.post(
         "https://petopia-n81j.onrender.com/funcionario",
         formData,
-        {
-          headers: { Authorization: `Bearer ${token}` },
-        },
+
       );
       alert("Funcionário cadastrado com sucesso.");
       console.log(response.data);
