@@ -25,9 +25,23 @@ const Funcionario = () => {
 
     try {
 
+      const token = localStorage.getItem("token");
+
+      // 2. Verifica se o token existe (opcional, mas boa prática)
+      if (!token) {
+        alert("Você precisa estar logado como Admin para cadastrar funcionários.");
+        return;
+      }
+
       const response = await axios.post(
         "https://petopia-n81j.onrender.com/funcionario",
         formData,
+        {
+          // 3. Adiciona o cabeçalho de autorização
+          headers: {
+            Authorization: `Bearer ${token}`, 
+          },
+        }
 
       );
       alert("Funcionário cadastrado com sucesso.");
