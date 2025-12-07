@@ -49,7 +49,7 @@ const Funcionario = () => {
       console.error("Erro ao cadastrar:", error);
       if (error.response) {
         // Mostra a mensagem exata enviada pelo backend
-        alert(error.response.data.message || error.response.data || "Erro no servidor ao cadastrar.");
+        console.log(error.response.data.message || error.response.data || "Erro no servidor ao cadastrar.");
       } else {
         alert("Erro de conexão ou erro desconhecido.");
       }
