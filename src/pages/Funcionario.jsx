@@ -24,7 +24,7 @@ const Funcionario = () => {
     e.preventDefault();
 
     try {
-
+      console.log("LEndo o token")
       const token = localStorage.getItem("token");
 
       // 2. Verifica se o token existe (opcional, mas boa prática)
@@ -33,6 +33,7 @@ const Funcionario = () => {
         return;
       }
 
+      console.log("Passou do token")
       const response = await axios.post(
         "https://petopia-n81j.onrender.com/funcionario",
         formData,
