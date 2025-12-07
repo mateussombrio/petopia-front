@@ -36,14 +36,23 @@ const Funcionario = () => {
       console.log("Passou do token")
       const response = await axios.post(
         "https://petopia-n81j.onrender.com/funcionario",
-        formData
-
+        formData,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
       );
       alert("Funcionário cadastrado com sucesso.");
       console.log(response.data);
     } catch (error) {
       console.error("Erro ao cadastrar:", error);
-      alert("Erro ao cadastrar funcionário.");
+      if (error.response) {
+        // Mostra a mensagem exata enviada pelo backend
+        alert(error.response.data.message || error.response.data || "Erro no servidor ao cadastrar.");
+      } else {
+        alert("Erro de conexão ou erro desconhecido.");
+      }
     }
   };
 
