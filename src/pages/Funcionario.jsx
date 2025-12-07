@@ -36,13 +36,7 @@ const Funcionario = () => {
       console.log("Passou do token")
       const response = await axios.post(
         "https://petopia-n81j.onrender.com/funcionario",
-        formData,
-        {
-          // 3. Adiciona o cabeçalho de autorização
-          headers: {
-            Authorization: `Bearer ${token}`, 
-          },
-        }
+        formData
 
       );
       alert("Funcionário cadastrado com sucesso.");
