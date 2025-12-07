@@ -15,7 +15,7 @@ const HomePage = () => {
   useEffect(() => {
     // Com Axios é mais direto:
     axios
-      .get("http://localhost:3000/animal")
+      .get("https://petopia-n81j.onrender.com/animal")
       .then((response) => {
         // O Axios coloca os dados dentro de "response.data"
         setAnimais(response.data);

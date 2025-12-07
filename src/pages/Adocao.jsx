@@ -16,7 +16,7 @@ const AdoptionPage = () => {
   useEffect(() => {
     // Busca os dados do animal específico pelo ID
     axios
-      .get(`http://localhost:3000/animal/${id}`)
+      .get(`https://petopia-n81j.onrender.com/animal/${id}`)
       .then((response) => {
         setAnimal(response.data);
         setLoading(false);
@@ -41,7 +41,7 @@ const AdoptionPage = () => {
 
         const usuarioLogado = JSON.parse(userString);
         
-        const response = await axios.get(`http://localhost:3000/adotante/${usuarioLogado.id}`, {
+        const response = await axios.get(`https://petopia-n81j.onrender.com/adotante/${usuarioLogado.id}`, {
             headers: { Authorization: `Bearer ${token}` }
         });
 

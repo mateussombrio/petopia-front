@@ -45,7 +45,7 @@ const token = localStorage.getItem("token");
 
 
       // Envia os dados para o backend (ajuste a rota se necessário)
-      const response = await axios.post('http://localhost:3000/animal', formData,{
+      const response = await axios.post('https://petopia-n81j.onrender.com/animal', formData,{
           headers: {
             Authorization: `Bearer ${token}`,
           },

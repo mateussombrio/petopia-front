@@ -13,7 +13,7 @@ const PetDetail = () => {
   useEffect(() => {
     // Busca os dados do animal específico pelo ID
     axios
-      .get(`http://localhost:3000/animal/${id}`)
+      .get(`https://petopia-n81j.onrender.com/animal/${id}`)
       .then((response) => {
         setAnimal(response.data);
         setLoading(false);

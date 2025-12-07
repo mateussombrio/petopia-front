@@ -36,7 +36,7 @@ const LoginCadastro = () => {
     
     try {
       // Axios envia o objeto loginData diretamente como JSON
-      const response = await axios.post('http://localhost:3000/login', loginData);
+      const response = await axios.post('https://petopia-n81j.onrender.com/login', loginData);
 
       // Se chegou aqui, deu sucesso (status 2xx)
       alert(response.data.message || 'Login realizado!');
@@ -74,7 +74,7 @@ const LoginCadastro = () => {
         senha: cadastroData.senha
       };
 
-      const response = await axios.post('http://localhost:3000/adotante', payload);
+      const response = await axios.post('https://petopia-n81j.onrender.com/adotante', payload);
 
       alert(response.data || 'Conta criada com sucesso! Faça login.');
       // Limpar formulário

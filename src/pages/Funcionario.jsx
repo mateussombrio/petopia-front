@@ -35,7 +35,7 @@ const Funcionario = () => {
 
       console.log("Passou do token")
       const response = await axios.post(
-        "http://localhost:3000/funcionario",
+        "https://petopia-n81j.onrender.com/funcionario",
         formData,
         {
           headers: {

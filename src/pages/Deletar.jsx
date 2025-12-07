@@ -23,7 +23,7 @@ const Deletar = () => {
    try {
     const token = localStorage.getItem('token');
 
-    const response = await axios.delete(`http://localhost:3000/adotante/${adotante.id}`, {
+    const response = await axios.delete(`https://petopia-n81j.onrender.com/adotante/${adotante.id}`, {
       headers: {
         Authorization: `Bearer ${token}`
       }
@@ -62,7 +62,7 @@ const Deletar = () => {
       // Recuperar o token para permissão (se sua rota for protegida)
       const token = localStorage.getItem('token');
 
-      const response = await axios.delete(`http://localhost:3000/animal/${idBusca}`, {
+      const response = await axios.delete(`https://petopia-n81j.onrender.com/animal/${idBusca}`, {
         headers: {
           Authorization: `Bearer ${token}` // Envia o token se necessário
         }
