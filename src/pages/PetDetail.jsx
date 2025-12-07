@@ -13,7 +13,7 @@ const PetDetail = () => {
   useEffect(() => {
     // Busca os dados do animal específico pelo ID
     axios
-      .get(`https://petopia-n81j.onrender.com/animal/${id}`)
+      .get(`http://localhost:3000/animal/${id}`)
       .then((response) => {
         setAnimal(response.data);
         setLoading(false);
@@ -142,7 +142,7 @@ const PetDetail = () => {
               </p>
             </div>
 
-            <button className="btn-inquire" onClick={ ()=> navigate(`/retirada/${animal.id}`)}>Adotar</button>
+            <button className="btn-inquire" onClick={ ()=> navigate(`/adocao/${animal.id}`)}>Adotar</button>
 
             <div className="share-row">
               <button className="btn-share-main">

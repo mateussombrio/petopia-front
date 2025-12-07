@@ -1,7 +1,13 @@
 import React, { useState } from "react";
 import "../styles/Retirada.css";
+import { useParams } from "react-router-dom";
+import axios from "axios";
+import { useEffect } from "react";
 
 const Retirada = () => {
+  const {id} = useParams();
+  const [animal, setAnimal] = useState(null);
+  const [loading, setLoading] = useState(true);
   const [copied, setCopied] = useState(false);
   const orderCode = "#PET-1A2B3C4D";
 
@@ -21,6 +27,35 @@ const Retirada = () => {
       month: "long",
     });
   };
+
+    useEffect(() => {
+    // Busca os dados do animal específico pelo ID
+    axios
+      .get(`http://localhost:3000/animal/${id}`)
+      .then((response) => {
+        setAnimal(response.data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error("Erro ao buscar detalhes:", error);
+        setLoading(false);
+      });
+  }, [id]);
+
+
+    if (loading)
+    return (
+      <div style={{ textAlign: "center", marginTop: "50px" }}>
+        Carregando...
+      </div>
+    );
+  if (!animal)
+    return (
+      <div style={{ textAlign: "center", marginTop: "50px" }}>
+        Animal não encontrado.
+      </div>
+    );
+
   return (
     <div className="page-wrapper">
 
@@ -106,13 +141,13 @@ const Retirada = () => {
         <div className="card pet-summary-card">
           <div className="pet-image-wrapper">
             <img
-              src="https://images.unsplash.com/photo-1552053831-71594a27632d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-              alt="Buddy"
+              src={animal.foto}
+              alt={animal.nome}
             />
           </div>
           <div className="pet-details">
-            <h2>Buddy</h2>
-            <p className="pet-subtitle">Golden Retriever, 2 anos, Macho</p>
+            <h2>{animal.nome}</h2>
+            <p className="pet-subtitle">{animal.raca}, {animal.idade}, {animal.genero}</p>
             <div className="action-buttons">
               <button className="btn-primary">Perfil do Animal</button>
               <button className="btn-secondary">Contate o suporte</button>

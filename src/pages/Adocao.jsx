@@ -1,7 +1,82 @@
 import React from 'react';
 import '../styles/Adocao.css';
+import { useParams } from 'react-router-dom';
+import axios from 'axios';
+import { useState } from 'react';
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const AdoptionPage = () => {
+  const {id} = useParams();
+  const navigate = useNavigate();
+  const [animal, setAnimal] = useState(null);
+  const [adotante, setAdotante] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Busca os dados do animal específico pelo ID
+    axios
+      .get(`http://localhost:3000/animal/${id}`)
+      .then((response) => {
+        setAnimal(response.data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error("Erro ao buscar detalhes:", error);
+        setLoading(false);
+      });
+  }, [id]);
+
+  useEffect(() => {
+    const carregarAdotante = async () => {
+      try {
+        // A. Recupera os dados salvos no Login
+        const userString = localStorage.getItem('user');
+        const token = localStorage.getItem('token');
+        
+        if (!userString || !token) {
+          alert("Você precisa estar logado para adotar!");
+          return;
+        }
+
+        const usuarioLogado = JSON.parse(userString);
+        
+        const response = await axios.get(`http://localhost:3000/adotante/${usuarioLogado.id}`, {
+            headers: { Authorization: `Bearer ${token}` }
+        });
+
+        setAdotante(response.data);
+        setLoading(false);
+        
+      } catch (error) {
+        console.error("Erro ao buscar adotante:", error);
+        setLoading(false);
+      }
+    };
+
+    carregarAdotante();
+  }, []); // Array vazio: Executa só uma vez ao carregar a tela
+
+  if (loading)
+    return (
+      <div style={{ textAlign: "center", marginTop: "50px" }}>
+        Carregando...
+      </div>
+    );
+  if (!animal)
+    return (
+      <div style={{ textAlign: "center", marginTop: "50px" }}>
+        Animal não encontrado.
+      </div>
+    );
+
+  if(!adotante)
+    return (
+      <div style={{ textAlign: "center", marginTop: "50px" }}>
+        Adotante não encontrado.
+      </div>
+    );
+
   return (
     <div className="page-wrapper">
       <main className="container">
@@ -12,17 +87,17 @@ const AdoptionPage = () => {
           <div className="pet-image-container">
             {/* Imagem similar a um gato na neve */}
             <img 
-              src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-              alt="Gato Buddy" 
+              src={animal.foto} 
+              alt={animal.nome} 
               className="pet-image"
             />
           </div>
           <div className="pet-info">
-            <h2>Buddy</h2>
+            <h2>{animal.nome}</h2>
             <div className="tags">
               <span className="tag">Gosta de brincar</span>
-              <span className="tag">1 ano de idade</span>
-              <span className="tag">Macho</span>
+              <span className="tag">{animal.idade} anos de idade</span>
+              <span className="tag">{animal.genero}</span>
             </div>
             <p className="pet-description">
               Você está a um passo de levar esse bichinho para casa. 
@@ -42,22 +117,22 @@ const AdoptionPage = () => {
             <form>
               <div className="form-group">
                 <label>Nome Completo</label>
-                <input type="text" />
+                <input type="text" value={adotante.nome} onChange={(e) => setAdotante({...adotante, nome: e.target.value})}/>
               </div>
 
               <div className="form-group">
                 <label>Endereço</label>
-                <input type="text" />
+                <input type="text" value={adotante.endereco} onChange={(e) => setAdotante({...adotante, endereco: e.target.value})}/>
               </div>
 
               <div className="form-group">
                 <label>Email</label>
-                <input type="email" />
+                <input type="email" value={adotante.email} onChange={(e) => setAdotante({...adotante, email: e.target.value})}/>
               </div>
 
               <div className="form-group">
                 <label>Telefone</label>
-                <input type="tel" />
+                <input type="tel" value={adotante.contato} onChange={(e) => setAdotante({...adotante, telefone: e.target.value})}/>
               </div>
 
               <div className="checkbox-group">
@@ -68,7 +143,7 @@ const AdoptionPage = () => {
                 </label>
               </div>
 
-              <button type="button" className="btn-adopt">Adotar</button>
+              <button className="btn-adopt" onClick={ () => navigate(`/retirada/${id}`)}>Confirmar Adoção</button>
             </form>
           </div>
 

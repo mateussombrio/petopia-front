@@ -35,7 +35,7 @@ const Funcionario = () => {
 
       console.log("Passou do token")
       const response = await axios.post(
-        "https://petopia-n81j.onrender.com/funcionario",
+        "http://localhost:3000/funcionario",
         formData,
         {
           headers: {
@@ -184,11 +184,11 @@ const Funcionario = () => {
             </p>
 
             <div className="input-group">
-              <label>ID ou E-mail do Funcionário</label>
+              <label>E-mail do Funcionário</label>
               <div className="delete-row">
                 <input
                   type="text"
-                  placeholder="ex: 12345 ou funcionario@email.com"
+                  placeholder="funcionario@email.com"
                 />
                 <button type="button" className="btn-danger">
                   <svg

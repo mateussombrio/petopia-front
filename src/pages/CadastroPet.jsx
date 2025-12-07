@@ -35,8 +35,21 @@ const CadastroPet = () => {
     e.preventDefault(); // Previne que a página recarregue
 
     try {
+const token = localStorage.getItem("token");
+
+      // 2. Verifica se o token existe (opcional, mas boa prática)
+      if (!token) {
+        alert("Você precisa estar logado como Admin para cadastrar funcionários.");
+        return;
+      }
+
+
       // Envia os dados para o backend (ajuste a rota se necessário)
-      const response = await axios.post('https://petopia-n81j.onrender.com/cadastro', formData);
+      const response = await axios.post('http://localhost:3000/animal', formData,{
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
       
       alert('Animal cadastrado com sucesso!');
       console.log(response.data);

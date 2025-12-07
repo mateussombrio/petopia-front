@@ -53,6 +53,10 @@ function Routes() {
         {
           path: "/funcionario",
           element: <Funcionario/>
+        },
+        {
+          path: "/adocao/:id",
+          element: <AdoptionPage/>
         }
       ],
     },
